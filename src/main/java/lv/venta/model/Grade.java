@@ -35,6 +35,8 @@ public class Grade {
 	@Max(10)
 	private int grValue;
 	
+	@ManyToOne
+	@JoinColumn(name = "SId")
 	private Student student;
 	
 	
