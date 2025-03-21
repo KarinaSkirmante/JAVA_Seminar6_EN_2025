@@ -1,11 +1,14 @@
 package lv.venta.model;
 
+import java.util.Collection;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
@@ -23,7 +26,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "CourseTable")//MySql - professor_table
+@Table(name = "CourseTable")//MySql - course_table
 @Entity
 public class Course {
 	@Column(name = "CId")
@@ -46,8 +49,9 @@ public class Course {
 	@JoinColumn(name = "PId")//this will create a new column as FK
 	private Professor professor;
 	
-	
-	
+	@OneToMany(mappedBy = "course")//need to point which variable is with @JoinColumn
+	@ToString.Exclude
+	private Collection<Grade> grades;
 	
 	
 	 public Course(String inputTitle, int inputCreditPoints, Professor inputProfessor)

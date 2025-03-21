@@ -18,7 +18,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "StudentTable")//MySql - stundent_table
+@Table(name = "StudentTable")//MySql - student_table
 @Entity
 public class Student {
 	@Column(name = "SId")
