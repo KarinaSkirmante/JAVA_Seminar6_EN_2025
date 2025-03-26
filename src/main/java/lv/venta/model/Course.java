@@ -55,16 +55,24 @@ public class Course {
 	private Collection<Grade> grades;
 	
 	
-	 public Course(String inputTitle, int inputCreditPoints, Professor inputProfessor)
+	 public Course(String inputTitle, int inputCreditPoints, Professor ... inputProfessors)
 	    {
 	    	setTitle(inputTitle);
 	    	setCreditPoints(inputCreditPoints);
-	    	setProfessor(inputProfessor);
+	    	for(Professor tempP : inputProfessors)
+	    	{
+	    		addProfessor(tempP);
+	    	}
 	    }
 
 	 
+	 public void addProfessor(Professor inputProfessor) {
+		 if(inputProfessor != null && !professors.contains(inputProfessor))
+		 {
+			 professors.add(inputProfessor);
+		 }
+	 }
 	 
-	 
-	 
+	 //TODO create removeProfessor function
 	 
 }

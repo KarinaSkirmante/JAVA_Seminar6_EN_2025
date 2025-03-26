@@ -55,6 +55,7 @@ public class Professor {
 	@JoinTable(name = "CourseProfessorTable", 
 	joinColumns = @JoinColumn(name = "PId"), 
 	inverseJoinColumns = @JoinColumn(name = "CId"))
+	@ToString.Exclude
 	private Collection<Course> courses = new ArrayList<Course>();
 	
 	public Professor(String inputName, String inputSurname, Degree inputDegree)
