@@ -28,7 +28,7 @@ public class Student {
 	@Setter(value = AccessLevel.NONE)//will remove setter for id
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long sId;
+	private long sid;
 	
 	@Column(name = "Name")
 	@NotNull

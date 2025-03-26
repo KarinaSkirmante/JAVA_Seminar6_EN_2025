@@ -33,7 +33,7 @@ public class Course {
 	@Setter(value = AccessLevel.NONE)//will remove setter for id
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long cId;
+	private long cid;
 	
 	@NotNull
 	@Pattern(regexp = "[A-Za-z ()]{4,40}")

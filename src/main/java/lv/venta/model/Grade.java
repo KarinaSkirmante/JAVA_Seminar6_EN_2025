@@ -28,12 +28,12 @@ public class Grade {
 	@Setter(value = AccessLevel.NONE)//will remove setter for id
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long gId;
+	private long gid;
 	
 	@Column(name = "GrValue")
 	@Min(1)
 	@Max(10)
-	private int grValue;
+	private int grvalue;
 	
 	@ManyToOne
 	@JoinColumn(name = "SId")
@@ -47,7 +47,7 @@ public class Grade {
 	
 	public Grade(int inputGrValue, Student inputStudent, Course inputCourse)
 	{
-		setGrValue(inputGrValue);
+		setGrvalue(inputGrValue);
 		setStudent(inputStudent);
 		setCourse(inputCourse);
 	}
