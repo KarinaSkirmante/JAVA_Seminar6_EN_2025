@@ -15,4 +15,10 @@ public interface ICourseRepo extends CrudRepository<Course, Long>{
 	//?1 - > the first input param
 	public abstract ArrayList<Course> findByGradesStudentSid(long id);
 
+	
+	//Data JPA will create SQL query:\
+	//SELECT * FROM course_table WHERE pid = ?1;
+	//?1 - > the first input param
+	public abstract ArrayList<Course> findByProfessorPid(long id);
+
 }
