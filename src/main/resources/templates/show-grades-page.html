@@ -1,0 +1,25 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+	<p>Grades:</p>
+
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td>VALUE</td>
+			<td>STUDENT NAME</td>
+			<td>STUDENT SURNAME</td>
+			<td>COURSE TITLE</td>
+			<td>COURSE CREDITPOINTS</td>
+		</tr>
+
+		<tr th:each="temp : ${box}">
+			<td th:text="${temp.gid}"></td>
+			<td th:text="${temp.grvalue}"></td>
+			<td th:text="${temp.student.name}"></td>
+			<td th:text="${temp.student.surname}"></td>
+			<td th:text="${temp.course.title}"></td>
+			<td th:text="${temp.course.creditPoints}"></td>
+		</tr>
+	</table>
+</body>
+</html>
