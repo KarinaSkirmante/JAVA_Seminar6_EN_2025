@@ -116,8 +116,16 @@ public class UniversityFilteringServiceImpl implements IUniversityFilteringServi
 
 	@Override
 	public ArrayList<Student> selectStudentsWithFailedGrades() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+
+		ArrayList<Student> result = studRepo.findByGradesGrvalueLessThan(4);
+		
+		if(result.isEmpty())
+		{
+			throw new Exception("There is failed grades");
+		}
+		
+		return result;
 	}
 
 }
