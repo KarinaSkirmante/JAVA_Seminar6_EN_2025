@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import lv.venta.model.Course;
 import lv.venta.model.Grade;
 import lv.venta.service.IUniversityFilteringService;
 
@@ -20,7 +21,7 @@ public class UniversityFilteringController {
 	private IUniversityFilteringService uniFiltService;
 	
 	@GetMapping("/grades/student/{id}")//localhost:8080/university/filter/grades/student/1
-	public String getControllerGetallGradesForStudent(@PathVariable(name = "id") long id, Model model)
+	public String getControllerGetAllGradesForStudent(@PathVariable(name = "id") long id, Model model)
 	{
 		try {
 			ArrayList<Grade> filteredGrades = uniFiltService.selectGradesByStudentId(id);
@@ -34,6 +35,18 @@ public class UniversityFilteringController {
 	}
 	
 	
-	
+	@GetMapping("/courses/student/{id}")//localhost:8080/university/filter/courses/student/1
+	public String getControllerGetAllCoursesForStudent(@PathVariable(name = "id") long id, Model model)
+	{
+		try {
+			ArrayList<Course> filteredCourses = uniFiltService.selectCoursesByStudentId(id);
+			model.addAttribute("box", filteredCourses);
+			return "show-courses-page";//will show show-courses-page.html with filtered grades
+		
+		} catch (Exception e) {
+			model.addAttribute("box", e.getMessage());
+			return "error-page";//this will show error-page.html with Exception message
+		}
+	}
 	
 }
