@@ -23,7 +23,7 @@ import lombok.ToString;
 @ToString
 @Table(name = "PersonTable")
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
 
 	@Column(name = "PeId")
