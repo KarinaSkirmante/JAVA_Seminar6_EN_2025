@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import lv.venta.model.Course;
 import lv.venta.model.Grade;
+import lv.venta.model.Student;
 import lv.venta.service.IUniversityFilteringService;
 
 @Controller
@@ -77,6 +78,23 @@ public class UniversityFilteringController {
 			model.addAttribute("box", e.getMessage());
 			return "error-page";//this will show error-page.html with Exception message
 		}
+	}
+	
+	
+	@GetMapping("/students/failed")//localhost:8080/university/filter/students/failed
+	public String getControllerGetFailedStudents(Model model) {
+		try {
+			ArrayList<Student> filteredStudents = uniFiltService.selectStudentsWithFailedGrades();
+			model.addAttribute("box", filteredStudents);
+			return "show-students-page";
+			
+		} catch (Exception e) {
+			model.addAttribute("box", e.getMessage());
+			return "error-page";//this will show error-page.html with Exception message
+		}
+		
+		
+		
 	}
 	
 }

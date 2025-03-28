@@ -48,7 +48,7 @@ public class Seminar6Application {
 				
 				Grade g1 = new Grade(4, st1, c1);//4 -> John Green -> JAVA
 				Grade g2 = new Grade(7, st1, c2);//7 -> John Green -> Web technologies
-				Grade g3 = new Grade(9, st2, c2);//9 -> Paul Blue  -> Web technologies
+				Grade g3 = new Grade(3, st2, c2);//3 -> Paul Blue  -> Web technologies
 				Grade g4 = new Grade(10, st2, c3);//10 -> Paul Blue -> Data Structures
 				grRepo.saveAll(Arrays.asList(g1, g2, g3, g4));
 				

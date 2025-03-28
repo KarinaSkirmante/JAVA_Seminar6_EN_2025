@@ -1,0 +1,33 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<body>
+	<p>Grades:</p>
+
+	<table border="1">
+	  <tr>
+			<td>STUDENT ID</td>
+			<td>STUDENT NAME</td>
+			<td>STUDENT SURNAME</td>
+			<td>STUDENTS GRADES</td>
+		</tr>
+
+		<tr th:each="temp : ${box}">
+			<td th:text="${temp.sid}"></td>
+			<td th:text="${temp.name}"></td>
+			<td th:text="${temp.surname}"></td>
+			<td>
+				<ul>
+					<li th:each="tempG : ${temp.grades}" >
+					<span th:text="${tempG.grvalue}"  ></span>
+					<span th:text="${tempG.course.title}"  ></span>
+					
+					
+					
+					</li>
+		
+				</ul>
+			</td>
+
+		</tr>
+	</table>
+</body>
+</html>
