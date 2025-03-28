@@ -49,4 +49,34 @@ public class UniversityFilteringController {
 		}
 	}
 	
+	
+	@GetMapping("/courses/professor/{id}")//localhost:8080/university/filter/courses/professor/1
+	public String getControllerGetAllCoursesForProfessor(@PathVariable(name = "id") long id, Model model)
+	{
+		try {
+			ArrayList<Course> filteredCourses = uniFiltService.selectCoursesByProfessorId(id);
+			model.addAttribute("box", filteredCourses);
+			return "show-courses-page";//will show show-courses-page.html with filtered grades
+		
+		} catch (Exception e) {
+			model.addAttribute("box", e.getMessage());
+			return "error-page";//this will show error-page.html with Exception message
+		}
+	}
+	
+	
+	@GetMapping("/grades/course/avg/{id}")//localhost:8080/university/filter/grades/course/avg/1
+	public String getControllerGetAvgGradeInCourse(@PathVariable(name = "id") long id, Model model)
+	{
+		try {
+			float avgGrade = uniFiltService.calculateAVGGradeInCourseId(id);
+			model.addAttribute("box", avgGrade);
+			return "data-page";//will show data-page.html with filtered grades
+		
+		} catch (Exception e) {
+			model.addAttribute("box", e.getMessage());
+			return "error-page";//this will show error-page.html with Exception message
+		}
+	}
+	
 }
