@@ -21,7 +21,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "StudentTable")//MySql - student_table
+//@Table(name = "StudentTable")//MySql - student_table <-no need for SINGLE_TABLE inheritance
 @Entity
 public class Student extends Person{
 

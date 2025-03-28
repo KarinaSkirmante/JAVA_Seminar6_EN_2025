@@ -21,7 +21,7 @@ import lv.venta.model.enums.Degree;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "ProfessorTable")//MySql - professor_table
+//@Table(name = "ProfessorTable")//MySql - professor_table  <-no need for SINGLE_TABLE inheritance
 @Entity
 public class Professor extends Person {
 
