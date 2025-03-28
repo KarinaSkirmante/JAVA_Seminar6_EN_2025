@@ -24,12 +24,7 @@ import lv.venta.model.enums.Degree;
 @Table(name = "ProfessorTable")//MySql - professor_table
 @Entity
 public class Professor extends Person {
-	@Column(name = "PId")
-	@Setter(value = AccessLevel.NONE)//will remove setter for id
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long pid;
-	
+
 	
 	@NotNull
 	@Column(name = "Degree")

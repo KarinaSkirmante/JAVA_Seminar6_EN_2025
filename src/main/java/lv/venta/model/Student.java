@@ -24,13 +24,7 @@ import lombok.ToString;
 @Table(name = "StudentTable")//MySql - student_table
 @Entity
 public class Student extends Person{
-	@Column(name = "SId")
-	@Setter(value = AccessLevel.NONE)//will remove setter for id
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long sid;
-	
-	
+
 	
 	@OneToMany(mappedBy = "student")
 	@ToString.Exclude

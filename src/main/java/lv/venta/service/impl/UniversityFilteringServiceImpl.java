@@ -41,7 +41,7 @@ public class UniversityFilteringServiceImpl implements IUniversityFilteringServi
 			throw new Exception("Student with id: " + id + " doesn't exist");
 		}
 		
-		ArrayList<Grade> result = grRepo.findByStudentSid(id);
+		ArrayList<Grade> result = grRepo.findByStudentPeid(id);
 		
 		if(result.isEmpty())
 		{
@@ -62,7 +62,7 @@ public class UniversityFilteringServiceImpl implements IUniversityFilteringServi
 		{
 			throw new Exception("Student with id: " + id + " doesn't exist");
 		}
-		ArrayList<Course> result = couRepo.findByGradesStudentSid(id);
+		ArrayList<Course> result = couRepo.findByGradesStudentPeid(id);
 		
 		if(result.isEmpty())
 		{
@@ -83,7 +83,7 @@ public class UniversityFilteringServiceImpl implements IUniversityFilteringServi
 			throw new Exception("Professor with id: " + id + " doesn't exist");
 		}
 		
-		ArrayList<Course> result = couRepo.findByProfessorPid(id);
+		ArrayList<Course> result = couRepo.findByProfessorPeid(id);
 		
 		if(result.isEmpty())
 		{
