@@ -23,30 +23,21 @@ import lombok.ToString;
 @ToString
 @Table(name = "StudentTable")//MySql - student_table
 @Entity
-public class Student {
+public class Student extends Person{
 	@Column(name = "SId")
 	@Setter(value = AccessLevel.NONE)//will remove setter for id
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long sid;
 	
-	@Column(name = "Name")
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-z]{3,15}")
-	private String name;
 	
-	@Column(name = "Surname")
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-z]{3,30}")
-	private String surname;
 	
 	@OneToMany(mappedBy = "student")
 	@ToString.Exclude
 	private Collection<Grade> grades;
 	
 	public Student(String name, String surname) {
-		setName(name);
-		setSurname(surname);
+		super(name, surname);
 	}
 
 }

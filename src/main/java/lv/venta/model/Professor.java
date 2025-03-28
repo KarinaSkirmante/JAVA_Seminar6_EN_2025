@@ -23,22 +23,13 @@ import lv.venta.model.enums.Degree;
 @ToString
 @Table(name = "ProfessorTable")//MySql - professor_table
 @Entity
-public class Professor {
+public class Professor extends Person {
 	@Column(name = "PId")
 	@Setter(value = AccessLevel.NONE)//will remove setter for id
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long pid;
 	
-	@Column(name = "Name")
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-z]{3,15}")
-	private String name;
-	
-	@Column(name = "Surname")
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-z]{3,30}")
-	private String surname;
 	
 	@NotNull
 	@Column(name = "Degree")
@@ -51,8 +42,7 @@ public class Professor {
 	
 	public Professor(String inputName, String inputSurname, Degree inputDegree)
 	{
-		setName(inputName);
-		setSurname(inputSurname);
+		super(inputName, inputSurname);
 		setDegree(inputDegree);
 	}
 }
