@@ -95,8 +95,23 @@ public class UniversityFilteringServiceImpl implements IUniversityFilteringServi
 
 	@Override
 	public float calculateAVGGradeInCourseId(long id) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		if(id < 1)
+		{
+			throw new Exception("Id should be positive");
+		}
+		
+		if(!couRepo.existsById(id)) {
+			throw new Exception("Course with id: " + id + " doesn't exist");
+		}
+		
+		
+		float result = grRepo.calculateAVGGradeFromDB(id);
+		
+		if(result == 0) {
+			throw new Exception("There is no grade linked to course with id: " + id);
+		}
+				
+		return result;
 	}
 
 	@Override
